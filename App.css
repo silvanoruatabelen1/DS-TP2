@@ -57,3 +57,25 @@ h1 {
   padding: 0.5rem;
   border-radius: 4px;
 }
+.lista-compras li {
+  background-color: #f9f9f9;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.boton-eliminar {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.boton-eliminar:hover {
+  background-color: #ff3333;
+}
