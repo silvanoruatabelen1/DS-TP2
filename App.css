@@ -1,0 +1,194 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+.app {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+.formulario-entrada {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.formulario-entrada input {
+  flex-grow: 1;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px 0 0 4px;
+}
+
+.formulario-entrada button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+}
+
+.formulario-entrada button:hover {
+  background-color: #0051cc;
+}
+
+.lista-compras ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.lista-compras li {
+  background-color: #f9f9f9;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+
+
+
+.lista-compras li {
+  background-color: #f9f9f9;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.boton-eliminar {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.boton-eliminar:hover {
+  background-color: #ff3333;
+}
+
+
+
+.lista-compras li {
+  background-color: #f9f9f9;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lista-compras li.comprado {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.lista-compras li input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+
+.lista-compras li input[type="text"] {
+  flex-grow: 1;
+  margin-right: 0.5rem;
+  padding: 0.25rem;
+}
+
+.lista-compras li input[type="number"] {
+  width: 50px;
+  margin-right: 0.5rem;
+  padding: 0.25rem;
+}
+
+.boton-eliminar {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.boton-eliminar:hover {
+  background-color: #ff3333;
+}
+
+.selector-lista {
+  margin-bottom: 1rem;
+}
+
+.pestanas {
+  display: flex;
+  overflow-x: auto;
+  margin-bottom: 0.5rem;
+}
+
+.pestanas button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: background-color 0.3s;
+}
+
+.pestanas button.activa {
+  background-color: #ffffff;
+  border-bottom-width: 3px;
+  border-bottom-style: solid;
+}
+
+.nueva-lista-form {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.nueva-lista-form input[type="text"] {
+  flex-grow: 1;
+  padding: 0.5rem;
+}
+
+.nueva-lista-form .selector-color {
+  padding: 0;
+  width: 50px;
+  height: 38px;
+  border: none;
+  cursor: pointer;
+}
+
+.nueva-lista-form button {
+  padding: 0.5rem 1rem;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.lista-actual {
+  border: 2px solid;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.lista-actual h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
