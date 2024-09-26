@@ -57,6 +57,11 @@ h1 {
   padding: 0.5rem;
   border-radius: 4px;
 }
+
+
+
+/* ... (estilos anteriores) ... */
+
 .lista-compras li {
   background-color: #f9f9f9;
   margin-bottom: 0.5rem;
@@ -79,6 +84,10 @@ h1 {
 .boton-eliminar:hover {
   background-color: #ff3333;
 }
+
+
+/* ... (estilos anteriores) ... */
+
 .lista-compras li {
   background-color: #f9f9f9;
   margin-bottom: 0.5rem;
@@ -121,4 +130,67 @@ h1 {
 
 .boton-eliminar:hover {
   background-color: #ff3333;
+}
+
+.selector-lista {
+  margin-bottom: 1rem;
+}
+
+.pestanas {
+  display: flex;
+  overflow-x: auto;
+  margin-bottom: 0.5rem;
+}
+
+.pestanas button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: background-color 0.3s;
+}
+
+.pestanas button.activa {
+  background-color: #ffffff;
+  border-bottom-width: 3px;
+  border-bottom-style: solid;
+}
+
+.nueva-lista-form {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.nueva-lista-form input[type="text"] {
+  flex-grow: 1;
+  padding: 0.5rem;
+}
+
+.nueva-lista-form .selector-color {
+  padding: 0;
+  width: 50px;
+  height: 38px;
+  border: none;
+  cursor: pointer;
+}
+
+.nueva-lista-form button {
+  padding: 0.5rem 1rem;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.lista-actual {
+  border: 2px solid;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.lista-actual h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
 }
