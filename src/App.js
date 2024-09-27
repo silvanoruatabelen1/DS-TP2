@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import FormularioEntrada from './components/FormularioEntrada';
 import ListaCompras from './components/ListaCompras';
 import SelectorLista from './components/SelectorLista';
+import Modal from './components/Modal';
 
 function App() {
   const [listas, setListas] = useState([
     { id: 1, nombre: 'Lista Principal', color: '#3498db', items: [] }
   ]);
   const [listaActual, setListaActual] = useState(1);
+  const [modalAbierto, setModalAbierto] = useState(false);
+  const [listaAEliminar, setListaAEliminar] = useState(null);
 
   const agregarLista = (nombre, color) => {
     setListas([...listas, { id: Date.now(), nombre, color, items: [] }]);
@@ -15,6 +18,20 @@ function App() {
 
   const cambiarLista = (id) => {
     setListaActual(id);
+  };
+
+  const confirmarEliminarLista = (id) => {
+    setListaAEliminar(id);
+    setModalAbierto(true);
+  };
+
+  const eliminarLista = () => {
+    const nuevasListas = listas.filter(lista => lista.id !== listaAEliminar);
+    setListas(nuevasListas);
+    if (listaActual === listaAEliminar) {
+      setListaActual(nuevasListas[0]?.id || null);
+    }
+    setModalAbierto(false);
   };
 
   const agregarItem = (item) => {
@@ -79,18 +96,28 @@ function App() {
         listaActual={listaActual} 
         onCambiarLista={cambiarLista} 
         onAgregarLista={agregarLista}
+        onConfirmarEliminarLista={confirmarEliminarLista}
       />
-      <div style={{ borderColor: listaActualObj.color }} className="lista-actual">
-        <h2>{listaActualObj.nombre}</h2>
-        <FormularioEntrada onAgregarItem={agregarItem} />
-        <ListaCompras 
-          items={listaActualObj.items} 
-          onEliminarItem={eliminarItem}
-          onEditarItem={editarItem}
-          onCambiarCantidad={cambiarCantidad}
-          onToggleComprado={toggleComprado}
-        />
-      </div>
+      {listaActualObj && (
+        <div style={{ borderColor: listaActualObj.color }} className="lista-actual">
+          <h2>{listaActualObj.nombre}</h2>
+          <FormularioEntrada onAgregarItem={agregarItem} />
+          <ListaCompras 
+            items={listaActualObj.items} 
+            onEliminarItem={eliminarItem}
+            onEditarItem={editarItem}
+            onCambiarCantidad={cambiarCantidad}
+            onToggleComprado={toggleComprado}
+          />
+        </div>
+      )}
+      <Modal 
+        isOpen={modalAbierto} 
+        onClose={() => setModalAbierto(false)}
+        onConfirm={eliminarLista}
+        title="Confirmar eliminación"
+        message="¿Estás seguro de que quieres eliminar esta lista?"
+      />
     </div>
   );
 }

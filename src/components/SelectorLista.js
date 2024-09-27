@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function SelectorLista({ listas, listaActual, onCambiarLista, onAgregarLista }) {
+function SelectorLista({ listas, listaActual, onCambiarLista, onAgregarLista, onConfirmarEliminarLista }) {
   const [nuevaLista, setNuevaLista] = useState({ nombre: '', color: '#000000' });
 
   const handleSubmit = (e) => {
@@ -15,14 +15,26 @@ function SelectorLista({ listas, listaActual, onCambiarLista, onAgregarLista }) 
     <div className="selector-lista">
       <div className="pestanas">
         {listas.map(lista => (
-          <button 
-            key={lista.id} 
-            onClick={() => onCambiarLista(lista.id)}
-            className={listaActual === lista.id ? 'activa' : ''}
-            style={{ borderColor: lista.color }}
-          >
-            {lista.nombre}
-          </button>
+          <div key={lista.id} className="pestana-container">
+            <button 
+              onClick={() => onCambiarLista(lista.id)}
+              className={`pestana ${listaActual === lista.id ? 'activa' : ''}`}
+              style={{ borderColor: lista.color }}
+            >
+              {lista.nombre}
+              {listas.length > 1 && (
+                <span 
+                  className="boton-eliminar-lista"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    onConfirmarEliminarLista(lista.id);
+                  }}
+                >
+                  ×
+                </span>
+              )}
+            </button>
+          </div>
         ))}
       </div>
       <form onSubmit={handleSubmit} className="nueva-lista-form">
@@ -36,7 +48,6 @@ function SelectorLista({ listas, listaActual, onCambiarLista, onAgregarLista }) 
           type="color"
           value={nuevaLista.color}
           onChange={(e) => setNuevaLista({ ...nuevaLista, color: e.target.value })}
-          className="selector-color"
         />
         <button type="submit">Agregar Lista</button>
       </form>
