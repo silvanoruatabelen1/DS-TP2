@@ -1,1 +1,1 @@
-Link sitio estatico: https://66f5f7ef3931c3822a384759--animated-quokka-269e4f.netlify.app/
+Link sitio estatico: https://66f6afc8aff8da55ec245c69--sunny-kleicha-ee911f.netlify.app/
